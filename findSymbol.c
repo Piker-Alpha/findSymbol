@@ -152,28 +152,29 @@ uint64_t _findSymbol(unsigned char * aFileBuffer, const char * aSymbolName)
 			{
 				int64_t offset = (nl->n_value - textSegment->vmaddr);
 				printf("offset.........: 0x%llx\n", offset);
-				//
-				// Do you need the offset, then use this.
-				//
-				// return offset;
-
-
-				//
-				// The following lines are optional!
-				//
 				int64_t address = ((int64_t)aFileBuffer + offset);
-				str = (char *)address;
-				// ASCII character?
-				if (str[0] < 32 || str[0] > 126)
+				
+				if (nl->n_sect == 1) // Assembly in _TEXT,_text
 				{
-					printf("value..........: 0x%08x\n", aFileBuffer[offset]);
+					printf("address........: 0x%llx\n", address);
+
+					return address;
 				}
 				else
 				{
-					printf("string value...: %s\n", str);
+					str = (char *)address;
+					// ASCII character?
+					if (str[0] < 32 || str[0] > 126)
+					{
+						printf("value..........: 0x%08x\n", aFileBuffer[offset]);
+					}
+					else
+					{
+						printf("string value...: %s\n", str);
+					}
 				}
 
-				return address;
+				return offset;
 			}
 		}
 
