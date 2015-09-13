@@ -30,15 +30,19 @@ Usage
 -----
 
 ```
-./findSymbol /S*/L*/Kernels/kernel _version
-./findSymbol /S*/L*/Prelinkedkernels/prelinkedkernel _version
-./findSymbol /S*/L*/Kernels/kernel _version_major
-./findSymbol /S*/L*/Prelinkedkernels/prelinkedkernel _version_major
-./findSymbol /S*/L*/Kernels/kernel _version_minor
-./findSymbol /S*/L*/Prelinkedkernels/prelinkedkernel _version_minor
-./findSymbol /S*/L*/Kernels/kernel _version_revision
-./findSymbol /S*/L*/Prelinkedkernels/prelinkedkernel _version_revision
+./findSymbol <path/kernel> _version
+./findSymbol <path/kernel> _version_major
+./findSymbol <path/kernel> _version_minor
+./findSymbol <path/kernel> _version_revision
+
+./findSymbol <path/uncompressed_prelinkedkernel> _version
+./findSymbol <path/uncompressed_prelinkedkernel> _version_major
+./findSymbol <path/uncompressed_prelinkedkernel> _version_minor
+./findSymbol <path/uncompressed_prelinkedkernel> _version_revision
 ```
+
+Note: Use LZVN to decode the prelinkedkernel of Yosemite/El Capitan.
+
 
 Output (example)
 ----------------
