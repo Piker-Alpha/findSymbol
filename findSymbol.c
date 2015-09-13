@@ -93,11 +93,8 @@ uint64_t _findSymbol(unsigned char * aFileBuffer, const char * aSymbolName)
 	struct nlist_64 * nl							= NULL;
 	
 	void * stringTable								= NULL;
-	void * addr										= NULL;
 	
 	char * str;
-	
-	const char * fStrings							= NULL;
 	
 	uint32_t symbolNumber							= 0;
 
@@ -125,7 +122,6 @@ uint64_t _findSymbol(unsigned char * aFileBuffer, const char * aSymbolName)
 	stringTable = (void *)((int64_t)aFileBuffer + symtab->stroff);
 	nl = (struct nlist_64 *)((int64_t)aFileBuffer + symtab->symoff);
 	long symbolLength = 0;
-	int consts = 0;
 
 	for (symbolNumber = 0; symbolNumber <= symtab->nsyms; symbolNumber++)
 	{
@@ -151,12 +147,6 @@ uint64_t _findSymbol(unsigned char * aFileBuffer, const char * aSymbolName)
 		if (strcmp(str, aSymbolName) == 0)
 		{
 			printf("Symbol %s found @ 0x%x", aSymbolName, (symtab->stroff + nl->n_un.n_strx));
-
-			if (nl->n_sect == NO_SECT)
-			{
-				printf(", no value, skipping\n");
-				continue;
-			}
 
 			if (nl->n_value && nl->n_sect)
 			{
