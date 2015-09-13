@@ -31,13 +31,13 @@ Usage
 
 ```
 ./findSymbol /S*/L*/Kernels/kernel _version
-./findSymbol /S*/L*/Kernels/Prelinkedkernels/prelinkedkernel _version
+./findSymbol /S*/L*/Prelinkedkernels/prelinkedkernel _version
 ./findSymbol /S*/L*/Kernels/kernel _version_major
-./findSymbol /S*/L*/Kernels/Prelinkedkernels/prelinkedkernel _version_major
+./findSymbol /S*/L*/Prelinkedkernels/prelinkedkernel _version_major
 ./findSymbol /S*/L*/Kernels/kernel _version_minor
-./findSymbol /S*/L*/Kernels/Prelinkedkernels/prelinkedkernel _version_minor
+./findSymbol /S*/L*/Prelinkedkernels/prelinkedkernel _version_minor
 ./findSymbol /S*/L*/Kernels/kernel _version_revision
-./findSymbol /S*/L*/Kernels/Prelinkedkernels/prelinkedkernel _version_revision
+./findSymbol /S*/L*/Prelinkedkernels/prelinkedkernel _version_revision
 ```
 
 Output (example)
